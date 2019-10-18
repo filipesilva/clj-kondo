@@ -28,7 +28,7 @@
     "install": "binwrap-install",
     "prepare": "binwrap-prepare",
     "test": "binwrap-test",
-    "prepublish": "npm test"
+    "prepublishOnly": "npm test"
   },
   "dependencies": {
     "binwrap": "^0.2.2"
