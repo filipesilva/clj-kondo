@@ -1,0 +1,36 @@
+{
+  "name": "clj-kondo",
+  "version": "2019.10.11-alpha",
+  "description": "NPM distribution of https://github.com/borkdude/clj-kondo",
+  "homepage": "https://github.com/borkdude/clj-kondo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filipesilva/clj-kondo.git"
+  },
+  "keywords": [
+    "clj-kondo",
+    "clojure",
+    "clojurescript",
+    "clj",
+    "cljs"
+  ],
+  "author": "filipesilva",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "bin"
+  ],
+  "main": "index.js",
+  "bin": {
+    "clj-kondo": "bin/clj-kondo"
+  },
+  "scripts": {
+    "install": "binwrap-install",
+    "prepare": "binwrap-prepare",
+    "test": "binwrap-test",
+    "prepublish": "npm test"
+  },
+  "dependencies": {
+    "binwrap": "^0.2.2"
+  }
+}
