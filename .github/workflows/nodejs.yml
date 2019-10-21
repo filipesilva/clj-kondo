@@ -4,7 +4,10 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js 12.x
@@ -15,5 +18,9 @@ jobs:
       run: |
         yarn
         yarn test
+      env:
+        CI: true
+    - name: Run binary with no args
+      run: node ./bin/clj-kondo
       env:
         CI: true
