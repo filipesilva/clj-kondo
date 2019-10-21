@@ -4,7 +4,9 @@ const binwrap = require('binwrap');
 const request = require('request');
 
 const packageInfo = require(join(__dirname, 'package.json'));
-const version = packageInfo.version;
+// This package uses the original version ('2019.10.11-alpha') plus a prerelease number (`.1`) 
+// if needed, so we need to strip the suffix.
+const version = packageInfo.version.slice(0, '2019.10.11-alpha'.length);
 const root = `https://github.com/borkdude/clj-kondo/releases/download/v${version}`;
 const fallback = root + `/clj-kondo-${version}-standalone.jar`;
 const binary = 'clj-kondo';
