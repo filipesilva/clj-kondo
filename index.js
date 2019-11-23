@@ -1,12 +1,12 @@
-const { createWriteStream, writeFile, mkdirSync } = require('fs');
+const { createWriteStream, mkdirSync } = require('fs');
 const { extname, join } = require('path');
 const binwrap = require('binwrap');
 const request = require('request');
 
 const packageInfo = require(join(__dirname, 'package.json'));
-// This package uses the original version ('2019.10.11-alpha') plus a prerelease number (`.1`) 
+// This package uses the original version ('2019.10.11') plus a prerelease number (`.1`) 
 // if needed, so we need to strip the suffix.
-const version = packageInfo.version.slice(0, '2019.10.11-alpha'.length);
+const version = packageInfo.version.slice(0, '2019.10.11'.length);
 const root = `https://github.com/borkdude/clj-kondo/releases/download/v${version}`;
 const fallback = root + `/clj-kondo-${version}-standalone.jar`;
 const binary = 'clj-kondo';
@@ -22,6 +22,7 @@ const configuredBinwrap = binwrap({
   urls: {
     'darwin-x64': root + `/clj-kondo-${version}-macos-amd64.zip`,
     'linux-x64': root + `/clj-kondo-${version}-linux-amd64.zip`,
+    'win32-x64': root + `/clj-kondo-${version}-windows-amd64.zip`,
   }
 });
 
