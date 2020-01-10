@@ -6,7 +6,9 @@ const request = require('request');
 const packageInfo = require(join(__dirname, 'package.json'));
 // This package uses the original version ('2019.10.11') plus a prerelease number (`.1`) 
 // if needed, so we need to strip the suffix.
-const version = packageInfo.version.slice(0, '2019.10.11'.length);
+// Need to keep the string somewhere that's not the version because npm will remove leading 
+// zeroes from what it thinks is semver (e.g. 2020.01.01 -> 2020.1.1).
+const version = packageInfo['version-string'].slice(0, '2019.10.11'.length);
 const root = `https://github.com/borkdude/clj-kondo/releases/download/v${version}`;
 const fallback = root + `/clj-kondo-${version}-standalone.jar`;
 const binary = 'clj-kondo';
