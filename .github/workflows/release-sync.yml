@@ -29,8 +29,8 @@ jobs:
             git add .
             git commit -m "fix: update to $NEW_VERSION_STRING"
             git push
-            npm install
-            npm publish
+            yarn
+            yarn publish
           else
             echo "No new version found"
           fi

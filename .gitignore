@@ -1,3 +1,4 @@
 node_modules
 unpacked_bin
 package.json.bak
+yarn-error.log
