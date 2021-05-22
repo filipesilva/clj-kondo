@@ -13,12 +13,6 @@ jobs:
     # From https://stackoverflow.com/a/61919791
     - id: get_release
       run: | 
-        content=`curl --silent "https://api.github.com/repos/clj-kondo/clj-kondo/releases/latest"`
-        # the following lines are only required for multi line json
-        content="${content//'%'/'%25'}"
-        content="${content//$'\n'/'%0A'}"
-        content="${content//$'\r'/'%0D'}"
-        # end of optional handling for multi line json
-        echo "::set-output name=releaseJson::$content"
-    - run: echo "${{fromJson(steps.get_release.outputs.releaseJson).version}}"
-    - run: echo "${{steps.get_release.outputs.releaseJson}}"
+        version=`curl --silent "https://api.github.com/repos/clj-kondo/clj-kondo/releases/latest | jq -r .tag_name"`
+        echo "::set-output name=releaseTag::$version"
+    - run: echo "${{steps.get_release.outputs.releaseTag}}"
