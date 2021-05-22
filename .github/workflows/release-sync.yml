@@ -22,7 +22,7 @@ jobs:
             git config user.email github-actions@github.com
             git add .
             git commit -m "fix: update to $NEW_VERSION_STRING"
-            # git push
+            git push
           else
             echo "No new version found"
           fi
