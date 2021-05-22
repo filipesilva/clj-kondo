@@ -15,6 +15,6 @@ jobs:
           TAG=`curl --silent "https://api.github.com/repos/clj-kondo/clj-kondo/releases/latest" | jq -r .tag_name`
           TAG_WITHOUT_V="${TAG:1}"
           VERSION_STRING=`cat package.json | jq -r '."version-string"'`
-          if [ "$VERSION_STRING" != "$TAG_WITHOUT_V" ]; then
-            echo "Found new version" $tag_without_v
+          if [ "$VERSION_STRING" != "$VERSION_STRING" ]; then
+            echo "Found new version" $TAG_WITHOUT_V
           fi
