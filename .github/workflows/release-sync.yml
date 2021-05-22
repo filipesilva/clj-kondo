@@ -21,3 +21,4 @@ jobs:
         # end of optional handling for multi line json
         echo "::set-output name=releaseJson::$content"
     - run: echo "${{fromJson(steps.get_release.outputs.releaseJson).version}}"
+    - run: echo "${{steps.get_release.outputs.releaseJson}}"
