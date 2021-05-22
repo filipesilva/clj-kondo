@@ -13,6 +13,6 @@ jobs:
     # From https://stackoverflow.com/a/61919791
     - id: get_release
       run: | 
-        version=`curl --silent "https://api.github.com/repos/clj-kondo/clj-kondo/releases/latest | jq -r .tag_name"`
+        version=`curl --silent "https://api.github.com/repos/clj-kondo/clj-kondo/releases/latest" | jq -r .tag_name`
         echo "::set-output name=releaseTag::$version"
     - run: echo "${{steps.get_release.outputs.releaseTag}}"
