@@ -10,13 +10,9 @@ jobs:
   get-new-version:
     runs-on: ubuntu-latest
     steps:
-      - id: get_release
-        run: | 
-          tag=`curl --silent "https://api.github.com/repos/clj-kondo/clj-kondo/releases/latest" | jq -r .tag_name`
-          echo "::set-output name=releaseTag::$tag"
       - run: |
         tag=`curl --silent "https://api.github.com/repos/clj-kondo/clj-kondo/releases/latest" | jq -r .tag_name`
-        version_string=`cat package.json | jq -r '."version-string"`
+        version_string=`cat package.json | jq -r '."version-string"'`
         # new_version_string=$version_string
         echo "::set-output name=version::$new_version_string"
   
