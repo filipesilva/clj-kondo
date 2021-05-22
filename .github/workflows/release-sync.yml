@@ -1,0 +1,15 @@
+on: 
+  workflow_dispatch: ~
+  schedule:
+    # Every sunday 12:00 UTC, 05:00 PDT
+    - cron:  '0 12 * * 0'
+
+jobs:
+  release-sync:
+    runs-on: ubuntu-latest
+    steps:
+    # From https://stackoverflow.com/a/61919791
+    - id: set_var
+      run: curl --silent "https://api.github.com/repos/clj-kondo/clj-kondo/releases/latest"
+    - run: |
+        echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
