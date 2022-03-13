@@ -1,7 +1,7 @@
 {
   "name": "clj-kondo",
-  "version": "2022.03.04",
-  "version-string": "2022.03.04",
+  "version": "2022.03.09",
+  "version-string": "2022.03.09",
   "description": "NPM distribution of https://github.com/borkdude/clj-kondo",
   "homepage": "https://github.com/borkdude/clj-kondo",
   "repository": {
