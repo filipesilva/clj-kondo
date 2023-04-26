@@ -31,7 +31,6 @@
     "prepublishOnly": "npm test"
   },
   "dependencies": {
-    "binwrap": "^0.2.2",
-    "request": "^2.88.0"
+    "binwrap": "^0.2.3"
   }
 }
