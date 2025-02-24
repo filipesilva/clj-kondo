@@ -7,15 +7,6 @@ on:
     - cron:  '0 12 * * 0'
 
 jobs:
-  keep-alive:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Keep cronjob based triggers of GitHub workflows alive
-        uses: PhrozenByte/gh-workflow-immortality@v1
-        with:
-          secret: ${{ secrets.GH_TOKEN }}
-          repos: ${{ github.repository }}
-
   release-sync:
     runs-on: ubuntu-latest
     steps:
