@@ -16,6 +16,10 @@ jobs:
     steps:
       - name: Keep cronjob based triggers of GitHub workflows alive
         uses: PhrozenByte/gh-workflow-immortality@v1
+        # this repo has a bugged workflow that always shows up as null and
+        # can't be deleted, causing this step to fail even though other
+        # workflows are fine.
+        continue-on-error: true 
         with:
           secret: ${{ secrets.GH_TOKEN }}
           repos: ${{ github.repository }}
